@@ -4,8 +4,6 @@
  * Created: 2018/04/09 16:56:22
  *  Author: tak
  */ 
-
-
 #ifndef TIMER0_H_
 #define TIMER0_H_
 
@@ -25,10 +23,15 @@
 /***
  * External APIs
  ***/
-void Timer0_init();
-uint16_t Timer0_getTimeMS();
-RET Timer0_setCallback(void (*func)());
-RET Timer0_clearCallback(void (*func)());
+
+
+typedef struct {
+	void (*init)();
+	uint16_t (*getTimeMS)();
+	RET (*setCallback)(void (*func)());
+	RET (*clearCallback)(void (*func)());
+} ITimer0;
+extern ITimer0 Timer0;
 
 
 #endif /* TIMER0_H_ */

@@ -12,18 +12,18 @@ TEST_GROUP(LedDriverTestTarget);
 
 TEST_SETUP(LedDriverTestTarget)
 {
-	LedDriver_create();
+	LedDriver.create();
 }
 
 TEST_TEAR_DOWN(LedDriverTestTarget)
 {
-	LedDriver_destroy();
+	LedDriver.destroy();
 }
 
 TEST(LedDriverTestTarget, on)
 {
 	Uart0_sendText("Turn on LED. Please check, then press any key\n");
-	LedDriver_turnOn();
+	LedDriver.turnOn();
 	Uart0_recv();
 	
 }
@@ -31,7 +31,7 @@ TEST(LedDriverTestTarget, on)
 TEST(LedDriverTestTarget, off)
 {
 	Uart0_sendText("Turn off LED. Please check, then press any key\n");
-	LedDriver_turnOff();
+	LedDriver.turnOff();
 	Uart0_recv();
 }
 

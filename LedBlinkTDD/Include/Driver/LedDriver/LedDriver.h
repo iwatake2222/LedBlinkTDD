@@ -9,9 +9,12 @@
 #ifndef LEDDRIVER_H_
 #define LEDDRIVER_H_
 
-void LedDriver_create();
-void LedDriver_destroy();
-void LedDriver_turnOn();
-void LedDriver_turnOff();
+typedef struct {
+	void (*create)();
+	void (*destroy)();
+	void (*turnOn)();
+	void (*turnOff)();
+} ILedDriver;
+extern ILedDriver LedDriver;
 
 #endif /* LEDDRIVER_H_ */

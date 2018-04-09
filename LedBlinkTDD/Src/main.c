@@ -10,22 +10,6 @@
 #include "Driver/LedDriver/LedDriver.h"
 #include "Driver/Timer0/Timer0.h"
 
-void LedBlink_cb()
-{
-	static uint16_t cnt = 0;
-	static int state = 0;
-	if(cnt++ > 1000) {
-		if(state == 0) {
-			LedDriver_turnOn();
-			state = 1;
-		} else {
-			LedDriver_turnOff();
-			state = 0;
-		}
-		cnt = 0;
-	}
-
-}
 
 int main(void)
 {
@@ -38,12 +22,8 @@ int main(void)
 	runTestTarget(sizeof(argv), argv);
 #endif
 	
-	/* ToDo this code should go LedBlink */
-	{
-		Timer0_init();
-		LedDriver_create();
-		Timer0_setCallback(LedBlink_cb);	
-	}
+	
+	LedBlink_start(&LedDriver, &Timer0, 1000);
 
 	while(1);
 }

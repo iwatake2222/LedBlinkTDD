@@ -56,6 +56,13 @@ uint16_t Timer0_getTimeMS()
 	return s_cntTimer0_1ms;
 }
 
+ITimer0 Timer0 = {
+	.init = Timer0_init,
+	.getTimeMS = Timer0_getTimeMS,
+	.setCallback = Timer0_setCallback,
+	.clearCallback = Timer0_clearCallback,
+};
+
 /*** Internal Function Definitions ***/
 ISR(TIMER0_COMPA_vect)
 {

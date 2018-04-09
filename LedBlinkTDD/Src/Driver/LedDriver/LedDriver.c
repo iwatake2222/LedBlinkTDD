@@ -8,22 +8,29 @@
 #include "Wrapper/Avr_wrapper.h"
 #include "Driver/LedDriver/LedDriver.h"
 
-void LedDriver_create()
+static void LedDriver_create_impl()
 {
 	/* Set LED(PB5) as output */
 	AVR_WRAPPER_IO(DDRB) |= 1 << 5;
 }
 
-void LedDriver_destroy()
+static void LedDriver_destroy_impl()
 {
 }
 
-void LedDriver_turnOn()
+static void LedDriver_turnOn_impl()
 {
 	AVR_WRAPPER_IO(PORTB) |= 1 << 5;
 }
 
-void LedDriver_turnOff()
+static void LedDriver_turnOff_impl()
 {
 	AVR_WRAPPER_IO(PORTB) &= ~(1 << 5);
 }
+
+ILedDriver LedDriver = {
+	.create = LedDriver_create_impl,
+	.destroy = LedDriver_destroy_impl,
+	.turnOn = LedDriver_turnOn_impl,
+	.turnOff = LedDriver_turnOff_impl,
+};

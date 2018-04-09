@@ -182,6 +182,18 @@
     <Compile Include="Include\Wrapper\Avr_wrapper.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Mock\Common\LedDriverFake.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Mock\Common\LedDriverFake.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Mock\Common\Timer0Fake.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Mock\Common\Timer0Fake.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Src\Driver\LedDriver\LedDriver.c">
       <SubType>compile</SubType>
     </Compile>
@@ -261,7 +273,7 @@
     <Folder Include="Include\Wrapper" />
     <Folder Include="Mock" />
     <Folder Include="Mock\Common" />
-    <Folder Include="Mock\Host" />
+    <Folder Include="Mock\Target" />
     <Folder Include="Src" />
     <Folder Include="Src\Driver" />
     <Folder Include="Src\Driver\LedDriver" />

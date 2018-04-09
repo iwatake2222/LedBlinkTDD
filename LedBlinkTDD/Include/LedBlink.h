@@ -9,9 +9,11 @@
 #ifndef LEDBLINK_H_
 #define LEDBLINK_H_
 
-void LedBlink_start();
-void LedBlink_stop();
+#include "Driver/LedDriver/LedDriver.h"
+#include "Driver/Timer0/Timer0.h"
 
+void LedBlink_start(ILedDriver* ledDriver, ITimer0* timer0, int interval);
+void LedBlink_stop();
 
 
 #endif /* LEDBLINK_H_ */
