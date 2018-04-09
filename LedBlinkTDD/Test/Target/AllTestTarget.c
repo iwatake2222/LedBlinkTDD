@@ -5,11 +5,11 @@
  *  Author: tak
  */ 
 #include "Unity/unity_fixture.h"
-#include "Uart0/Uart0.h"
+#include "Driver/Uart0/Uart0.h"
 
 static void AllTestTarget(void)
 {
-	RUN_TEST_GROUP(SampleLogicTest);
+	RUN_TEST_GROUP(LedDriverTestTarget);
 }
 
 void runTestTarget(int argc, const char * argv[])

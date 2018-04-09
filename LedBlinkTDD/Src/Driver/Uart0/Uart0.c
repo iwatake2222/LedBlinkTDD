@@ -8,7 +8,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "Uart0_Config.h"
-#include "Uart0/Uart0.h"
+#include "Driver/Uart0/Uart0.h"
 
 /*** Internal Const Values ***/
 

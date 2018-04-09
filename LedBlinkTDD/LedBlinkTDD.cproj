@@ -167,7 +167,25 @@
     <Compile Include="Include\Common.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Include\Uart0\Uart0.h">
+    <Compile Include="Include\Driver\LedDriver\LedDriver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\Driver\Timer0\Timer0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\Driver\Uart0\Uart0.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\LedBlink.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Include\Wrapper\Avr_wrapper.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Src\Driver\LedDriver\LedDriver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Src\Driver\Timer0\Timer0.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Src\Driver\Uart0\Uart0.c">
@@ -176,19 +194,31 @@
     <Compile Include="Src\Driver\Uart0\Uart0_Config.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Src\LedBlink.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Src\main.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Src\SampleLogic\SampleLogic.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Src\Wrapper\Avr_wrapper.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Test\Common\AllTestCommon.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Test\Common\LedBlinkTestCommon.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Test\SampleLogicTest.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Test\Target\AllTestTarget.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Test\Target\LedDriverTestTarget.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Unity\cmock.c">
@@ -224,10 +254,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Include" />
-    <Folder Include="Include\Uart0\" />
+    <Folder Include="Include\Driver" />
+    <Folder Include="Include\Driver\LedDriver" />
+    <Folder Include="Include\Driver\Timer0" />
+    <Folder Include="Include\Driver\Uart0\" />
+    <Folder Include="Include\Wrapper" />
+    <Folder Include="Mock" />
+    <Folder Include="Mock\Common" />
+    <Folder Include="Mock\Host" />
     <Folder Include="Src" />
     <Folder Include="Src\Driver" />
+    <Folder Include="Src\Driver\LedDriver" />
+    <Folder Include="Src\Driver\Timer0" />
     <Folder Include="Src\Driver\Uart0\" />
+    <Folder Include="Src\Wrapper" />
     <Folder Include="Src\SampleLogic" />
     <Folder Include="Test\Common" />
     <Folder Include="Test\Target" />

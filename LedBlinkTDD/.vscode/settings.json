@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"common.h": "c",
+		"xmemory0": "c",
+		"leddriver.h": "c",
+		"unity_fixture.h": "c"
+	}
+}

@@ -5,10 +5,27 @@
  * Author : tak
  */
 #include "Common.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include <util/delay.h>
-#include "Uart0/Uart0.h"
+#include "Driver/Uart0/Uart0.h"
+#include "Wrapper/Avr_wrapper.h"
+#include "Driver/LedDriver/LedDriver.h"
+#include "Driver/Timer0/Timer0.h"
+
+void LedBlink_cb()
+{
+	static uint16_t cnt = 0;
+	static int state = 0;
+	if(cnt++ > 1000) {
+		if(state == 0) {
+			LedDriver_turnOn();
+			state = 1;
+		} else {
+			LedDriver_turnOff();
+			state = 0;
+		}
+		cnt = 0;
+	}
+
+}
 
 int main(void)
 {
@@ -20,16 +37,13 @@ int main(void)
 	const char * argv[] = {"main", "-v"};
 	runTestTarget(sizeof(argv), argv);
 #endif
-
-	DDRB = 0xff;
-	while (1) {
-		PORTB = 0;
-		// (*(volatile uint8_t *)((0x05) + 0x20)) = 0;
-		_delay_ms(1000);
-		 PORTB = 0xFF;
-		// (*(volatile uint8_t *)((0x05) + 0x20)) = 0xFF;
-		_delay_ms(1000);
+	
+	/* ToDo this code should go LedBlink */
+	{
+		Timer0_init();
+		LedDriver_create();
+		Timer0_setCallback(LedBlink_cb);	
 	}
+
+	while(1);
 }
-
-
